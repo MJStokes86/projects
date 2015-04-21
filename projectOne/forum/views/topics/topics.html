@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+<style type="text/css">
+body{
+	background-image: url("https://2014.spaceappschallenge.org/media/location/nyc.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% auto;
+
+}
+a {
+	color: black;
+}
+</style>
+	<meta charset='UTF-8'>
+	<title>List of Topics</title>
+</head>
+<body>
+
+<ul>
+	{{#listoftopics}}
+	<li><a href="/topics/{{id}}"> {{title}} | {{creator}} | {{date}}</a></li>
+	{{/listoftopics}}
+</ul>
+<form action="/topics/new" method="GET">
+<button>Create a new topic</button>
+</form>
+</body>
+</html>

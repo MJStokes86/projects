@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<style type="text/css">
+body{
+	background-color: gray;
+
+}
+</style>
+	<meta charset='UTF-8'>
+	<title>Create New Topic</title>
+
+</head>
+<body>
+<form action="/topics/new" method="POST">
+	<center>
+	<label>
+	Title:
+	<input type="text" name="title" />
+	</label>
+	Creator:
+	<label>
+	<input type="text" name="creator" />
+	</label>
+	<label>
+	Date:
+	<input type="text" name= "date" />
+	</label>
+
+	<br />
+	<p>
+	</p>
+
+	Body:
+	<br />
+	<label>
+	<textarea type="text" name="name" rows="10" cols="50">
+	</textarea>
+	</label>
+
+	<br />
+	<button>Submit</button>
+
+	<br />
+	</center>
+
+
+
+</form>
+
+</body>
+</html>
