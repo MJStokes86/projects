@@ -61,7 +61,10 @@ app.get('/topics/:id', function(req, res){
   
     db.all("SELECT * FROM topics WHERE id = " + id + ";", {}, function(err, topic){
     	console.log(topic)
-	    db.all("SELECT * FROM comments;", {}, function(err, comment){
+    	var body = topics[0].body;
+    	var person_created = comments[0].person_created
+    	var input = comments[0].input
+	    db.all("SELECT * FROM comments WHERE topic_id = " + id + ";", {}, function(err, comment){
 	    	// console.log(id)
 	    	// console.log(topic);
 	     //     console.log(comment);
