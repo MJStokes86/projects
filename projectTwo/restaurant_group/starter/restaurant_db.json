@@ -1,0 +1,40 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Denny's",
+      "location": "Los Angeles",
+      "cuisine": "American",
+      "image_url": "http://www.coupons4utah.com/wp-content/uploads/2012/06/dennys-breakfast.jpg"
+    },
+    {
+      "name": "Chipole",
+      "location": "Los Angeles",
+      "cuisine": "Mexican",
+      "id": 2
+    },
+    {
+      "name": "Chilis",
+      "location": "Los Angeles",
+      "cuisine": "American",
+      "id": 3
+    },
+    {
+      "name": "McDonalds",
+      "location": "Los Angeles",
+      "cuisine": "American",
+      "id": 4
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "restaurantId": 1,
+      "name": "hamburger",
+      "price": 10,
+      "order_count": 0,
+      "image_url": "http://kleberly.com/data_images/wallpapers/7/277047-hamburger.jpg"
+    }
+  ],
+  "public": []
+}
