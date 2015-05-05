@@ -46,11 +46,18 @@ app.get('/comments/new', function(req, res){
 	res.send(fs.readFileSync('./views/comments/newComment.html', 'utf8'));
 })
 
+<<<<<<< HEAD
 app.post('/topics/:id', function(req, res){
 	console.log(req.body);
 	db.run("INSERT INTO comments(person_created, input) VALUES ('" + req.body.name + "','" + req.body.comment + "')");
 	res.redirect("/topics")
 	
+=======
+app.post('/comments/new', function(req, res){
+	console.log(req.body);
+	db.run("INSERT INTO comments(person_created, input) VALUES ('" + req.body.name + "','" + req.body.comment + "')");
+	res.redirect("/topics")
+>>>>>>> c7d02068125a56c3fc5e91fb039ae4899d92f409
 })
 
 app.get('/topics/:id', function(req, res){
@@ -62,12 +69,22 @@ app.get('/topics/:id', function(req, res){
   
     db.all("SELECT * FROM topics WHERE id = " + id + ";", {}, function(err, topic){
     	console.log(topic)
+<<<<<<< HEAD
     	var body = topic[0].body;
     	
 	    db.all("SELECT * FROM comments WHERE topic_id = " + id + ";", {}, function(err, comment){
 	    
 	    var person_created = comment[0].person_created
     	var input = comment[0].input
+=======
+    	var body = topics[0].body;
+    	var person_created = comments[0].person_created
+    	var input = comments[0].input
+	    db.all("SELECT * FROM comments WHERE topic_id = " + id + ";", {}, function(err, comment){
+	    	// console.log(id)
+	    	// console.log(topic);
+	     //     console.log(comment);
+>>>>>>> c7d02068125a56c3fc5e91fb039ae4899d92f409
 	    fs.readFile('./views/topics/show.html', 'utf8', function(err, html){
 	        var renderedHTML = Mustache.render(html, {body:topic, person_created:comment, input:comment});
 	        res.send(renderedHTML);
