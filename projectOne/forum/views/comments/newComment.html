@@ -12,29 +12,32 @@ body{
 </head>
 <body>
 
-<form action="/comments/new" method="POST">
+{{#form}}
+<form action="/topics/{{id}}/comments/new= {{topic_id}}" method="POST">
+{{/form}}
 
 	<center>
 	<label>
 
 	Name:
 	<br />
-	<input type="text" name="name" rows="10" cols="50" />
+	<input type="text" name="person_created" rows="10" cols="50" />
 	</label>
-	<label>
+	
 	
 	<br />
-<p>
-</p>
+<label>
 	Comment:
 
 	<br />
 
-	<textarea type="text" name="name" rows="10" cols="50">
-	</textarea>
+	<textarea type="text" name="input" >
+		
+	</textarea> 
+	
 	</label>
 	<br />
-	<button>Submit</button>
+	<input type='submit' value='Submit' />
 	</center>
 </form>
 </body>

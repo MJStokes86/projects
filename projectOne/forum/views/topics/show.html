@@ -42,10 +42,11 @@ body{
 
 
 
-
-<form action="/comments/new" method='GET'>
+{{#form}}
+<form action="/topics/{{id}}/comments/new" method='GET'>
 <button>Create New Comment</button>
 </form>
+{{/form}}
 </center>
 
 </body>

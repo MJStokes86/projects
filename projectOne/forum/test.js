@@ -14,6 +14,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 
 
+
+
+
 app.get('/topics/:id', function(req, res){
 	var id = req.params.id;
 	db.all("SELECT * FROM topics WHERE id = " + id + ";", {}, function(err, body){
