@@ -13,15 +13,16 @@ body{
 <body>
 
 {{#form}}
-<form action="/topics/{{id}}/comments/new= {{topic_id}}" method="POST">
+<form action="/topics/{{id}}/comments/new" method="POST">
 {{/form}}
+
 
 	<center>
 	<label>
 
 	Name:
 	<br />
-	<input type="text" name="person_created" rows="10" cols="50" />
+	<input type="text" name="person_created" id='topic_id' rows="10" cols="50" />
 	</label>
 	
 	
@@ -31,14 +32,24 @@ body{
 
 	<br />
 
-	<textarea type="text" name="input" >
+	<textarea type="text" name="input">
 		
 	</textarea> 
 	
 	</label>
 	<br />
+
+{{#test}}
+<input type="hidden" name="topic_id" id="topic_id"value='{{topic_id}}' />
+{{/test}}
+
+
+
+
+
 	<input type='submit' value='Submit' />
 	</center>
+	
 </form>
 </body>
 </html>

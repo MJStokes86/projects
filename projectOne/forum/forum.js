@@ -24,6 +24,8 @@ app.get('/topics', function(req,res) {
 		var html = Mustache.render(template, {listoftopics: topics});
 		res.send(html);
 	});
+
+
 });
 
 
@@ -51,24 +53,39 @@ app.get('/topics/:id/comments/new', function(req, res)
 
 	db.all("SELECT * FROM topics;", function(err, topics) {
 
-	var html = Mustache.render(template, {form:topics})
+
+		db.all("SELECT * FROM comments where topic_id= " + res.locals.id + ";", function(err, comments){
+		
+	var html = Mustache.render(template, {form:topics, test: comments[0]})
 	res.send(html);
 
 });
 
+	
+		
+	});
+		
+
 
 });
 
-debugger 
+
 app.post('/topics/:id/comments/new', function(req, res){
 	var id = req.params.id
+
 	console.log(id)
+	console.log(req.body.topic_id)
 	
 	
 	
 	
 	db.run("INSERT INTO comments (person_created, input, topic_id) VALUES ('" + req.body.person_created + "','" + req.body.input + "', '" + req.body.topic_id + "')", function(error){ 
 
+
+
+
+
+		
 		if (error) {
 			console.log('Error')
 		}
@@ -97,9 +114,12 @@ console.log(id)
     db.all("SELECT * FROM topics WHERE id = " + id + ";", {}, function(err, topics){
     	console.log(topics)
 
+    	
+
 
     	
 	    db.all("SELECT * FROM comments WHERE topic_id = " + id + ";", {}, function(err, comments){
+
 
 
 	   
