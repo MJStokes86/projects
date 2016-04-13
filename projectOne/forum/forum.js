@@ -46,25 +46,27 @@ app.post('/topics/new', function(req, res){
 
 app.get('/topics/:id/comments/new', function(req, res)
 {
-	res.locals.id = req.params.id
+	var id = req.params.id
+	res.locals.id = id
 	console.log(res.locals.id)
 
 	var template = fs.readFileSync('./views/comments/newComment.html', 'utf8')
 
-	db.all("SELECT * FROM topics;", function(err, topics) {
+	// db.all("SELECT * FROM topics;", function(err, topics) {
 
 
-		db.all("SELECT * FROM comments where topic_id= " + res.locals.id + ";", function(err, comments){
+		db.all("SELECT * FROM comments where topic_id= " + id + ";", function(err, comments){
 		
-	var html = Mustache.render(template, {form:topics, test: comments[0]})
+	var html = Mustache.render(template, { id:id})
 	res.send(html);
+	
 
-});
+// });
 
 	
 		
-	});
-		
+	
+	});	
 
 
 });
@@ -72,6 +74,7 @@ app.get('/topics/:id/comments/new', function(req, res)
 
 app.post('/topics/:id/comments/new', function(req, res){
 	var id = req.params.id
+	res.locals.id = id
 
 	console.log(id)
 	console.log(req.body.topic_id)
@@ -79,7 +82,7 @@ app.post('/topics/:id/comments/new', function(req, res){
 	
 	
 	
-	db.run("INSERT INTO comments (person_created, input, topic_id) VALUES ('" + req.body.person_created + "','" + req.body.input + "', '" + req.body.topic_id + "')", function(error){ 
+	db.run("INSERT INTO comments (person_created, input, topic_id) VALUES ('" + req.body.person_created + "','" + req.body.input + "', '" + id + "')", function(error){ 
 
 
 
