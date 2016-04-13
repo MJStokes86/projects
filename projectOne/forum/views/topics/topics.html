@@ -23,10 +23,19 @@ a {
 <ul>
 	{{#listoftopics}}
 	<li><a href="/topics/{{id}}/comments"> {{title}} | {{creator}} | {{date}}</a></li>
+	<form action="/topics/{{id}}" method="GET">
+	<input type="submit" value="Update Topic">
+
+</form>
 	{{/listoftopics}}
+
+
 </ul>
 <form action="/topics/new" method="GET">
 <button>Create a new topic</button>
 </form>
+
+
+
 </body>
 </html>

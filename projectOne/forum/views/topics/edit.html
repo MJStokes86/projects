@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Edit Topic</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+<form action="/topics/{{id}}?_method=PUT" method="POST">
+
+	<center>
+	
+	<label>
+	Title:
+	<input type="text" name="title" value='{{title}}' />
+	</label>
+	Creator:
+	<label>
+	<input type="text" name="creator" value='{{creator}}'/>
+	</label>
+	<label>
+	Date:
+	<input type="text" name= "date" value='{{date}}'/>
+	</label>
+
+
+	<br />
+	<p>
+	</p>
+
+	Body:
+	<br />
+	<label>
+	<textarea type="text" name="body" rows="10" cols="50" value='{{body}}'>
+	</textarea>
+	</label>
+	
+
+	<br />
+	<input type='submit' value='UPDATE' />
+	<br />
+
+	
+	</center>
+
+
+
+</form>
+
+<form action="/topics/{{id}}?_method=DELETE" method="POST">
+
+	<input type='submit' value='DELETE' />
+
+	
+</form>
+	
+</body>
+</html>
