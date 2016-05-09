@@ -1,55 +1,82 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-<style type="text/css">
-/* body{
-	background-image: url("http://blog.paradizo.com/wp-content/uploads/2010/03/nyc-empire-room.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100% auto;
 
-}
- */
-
-</style>
 	<meta charset='UTF-8'>
 	<title>Topic ID</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-<center>
-
-{{#body}}
-<h1>{{body}}</h1>
-{{/body}}
 
 
-<h2>Comments<h2>
+<div class="container topic-title">
+	<div class="row">
+		<div class="col-xs-12">
+			{{#topic}}
+		<h1>{{body}}</h1>
+		{{/topic}}
+		</div>
+	</div>
+</div>
+		
+<div class='table'>
+<div class="container">
+	<div class="row">
 
-<h3>
-<ol>
-{{#person_created}}
-<li>
-{{person_created}} - {{input}} 
+		<div class="col-xs-12">
 
-</li>
-{{/person_created}}
-</ol>
-</h3>
+		
 
+			<table class='comments' style='width:50%; border-spacing: 0;'>
+				
+				<tbody>
+					<tr>
+						<th>Name</th>
+						<th>Comment</th>
+						<th>Action</th>
+					</tr>
+					{{#comment}}
+					<tr>
+					
+						<td>{{name}}</td>
+						<td>{{input}}</td>
+						<td><form action="/topics/{{id}}/comments/edit" method="GET">
+							<input type="submit" value="Update Comment">
+							</form>
+						</td>
 
+					</tr>	
+					{{/comment}}
+				</tbody>
+			</table>
 
+			<center>
+			<form action="/topics/{{id}}/comments/new" method='GET'>
 
+			<button>Create New Comment</button>
+			</form>
 
+			
+			</center>
+		</div>
+	</div>
+</div>
+</div>
 
-<form action="/topics/{{id}}/comments/new" method='GET'>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<center>
+			<form action="/topics" method="GET">
+			<button type="submit"> Back </button>
+			</form>
+			</center>
 
-<button>Create New Comment</button>
-</form>
-
-<a href="/topics">Home</a>
-
-</center>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>

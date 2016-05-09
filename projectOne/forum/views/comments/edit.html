@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+	<meta charset='UTF-8'>
+	<title>Create New Comment</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+
+<form action="/topics/{{id}}/comments/edit?_method=PUT" method="POST" >
+	<div class="form-group edit-comment">
+	<center>
+
+	<div class="input-wrap">
+	<label>
+	<p>Name</p>
+	<br />
+	<input class="form-control" type="text" name="name" rows="10" cols="50"  value='{{name}}'/>
+	</label>
+	</div>
+	
+	
+	<br />
+
+	<div class="input-wrap">
+	<label>
+	<p>Comment</p>
+	<br />
+	<textarea class="form-control" type="text" name="input" value='{{input}}'>
+	</textarea> 
+	</label>
+	</div>
+	<br />
+
+
+<input type="hidden" name="topic_id" value='{{topic_id}}' />
+
+
+
+
+
+
+	<input type='submit' value='UPDATE' />
+
+	<form action="/topics/{{id}}/comments/edit?_method=DELETE" method="POST">
+	
+	<input type='submit' value='DELETE' />
+
+</div>
+</form>
+	</center>
+	
+</form>
+
+<br>
+
+<form action="/topics" method="GET">
+	<button id="cancel" type="submit">Cancel</button>
+</form>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

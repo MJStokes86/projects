@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html lang='en'>
-<style type="text/css">
-body{
-	background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQC7rm4yKdCv0hDdt7Py-smzI99qdSkr_Syu6vYIOcfWs63vusn-A");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100% auto;
-
-}
-
-h1{
-	color: black;
-}
-
-h2{
-	color: black;
-}
-</style>
 <head>
 	<meta charset='UTF-8'>
 	<title>Forum</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
-<center>
-<h1>Welcome To My Forum!</h1>
-<form action="/topics" method="GET">
-<button>Click here for the list of topics</button>
-</form>
-</center>
-<div>
+<div class="img-bg" id='img1'>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1>Music Forum</h1>
 
-<center>
-<h2>Created by Michael J. Stokes</h2>
-</center>
+				<form action="/topics" method="GET" >
+					<button type="submit">Check Out The Latest Topics</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 </div>
 </body>
+<script src='/bower_components/jquery/dist/jquery.js'></script>
 </html>

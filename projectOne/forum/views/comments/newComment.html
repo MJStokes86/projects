@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-<style type="text/css">
-body{
-	background-color: gray;
 
-}
-</style>
 	<meta charset='UTF-8'>
 	<title>Create New Comment</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+		
 
 <form action="/topics/{{id}}/comments/new" method="POST">
-
-
+	<div class="form-group new-comment">
 
 	<center>
+    <div class="input-wrap">
 	<label>
-
-	Name:
+	<p>Name</p>
 	<br />
-	<input type="text" name="person_created" id='topic_id' rows="10" cols="50" />
+	<input class= "form-control" type="text" name="name"  rows="10" cols="50" />
 	</label>
+	</div>
 	
 	
 	<br />
-<label>
-	Comment:
 
+	<div class="input-wrap">
+	<label>
+	<p>Comment</p>
 	<br />
-
-	<textarea type="text" name="input">
-		
+	<textarea class= "form-control" type="text" name="input">
 	</textarea> 
-	
 	</label>
+	</div>
+
+
 	<br />
 
 
-<input type="hidden" name="topic_id" value='{{ id }}' />
+	<input type="hidden" name="topic_id" value='{{ id }}' />
 
 
 
@@ -49,8 +52,20 @@ body{
 
 	<input type='submit' value='Submit' />
 	</center>
-	
+
+</div>	
 </form>
+
+<br>
+
+<form action="/topics/{{id}}/comments" method="GET">
+	<button id="cancel" type="submit">Cancel</button>
+</form>
+
+</div>
+</div>
+</div>
+
 
 </body>
 </html>

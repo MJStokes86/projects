@@ -2,38 +2,90 @@
 <html lang='en'>
 <head>
 
-<style type="text/css">
-body{
-	background-image: url("https://2014.spaceappschallenge.org/media/location/nyc.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100% auto;
-
-}
-a {
-	color: black;
-}
-</style>
 	<meta charset='UTF-8'>
 	<title>List of Topics</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
-<ul>
-	{{#listoftopics}}
-	<li><a href="/topics/{{id}}/comments"> {{title}} | {{creator}} | {{date}}</a></li>
-	<form action="/topics/{{id}}" method="GET">
+<div class="container title">
+	<div class="row">
+		<div class="col-xs-12">
+			
+		<h1>Current List of Topics</h1>
+		
+		</div>
+	</div>
+</div>
+
+<div class='table'>
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+
+<table class='topics' style='width: 100%;  border-spacing=0;'>
+
+<tbody>
+
+
+<tr>
+	
+	<th>Title</th>
+	<th>Creator</th>
+	<th>Date</th>
+	<th>Action</th>
+
+</tr>
+
+{{#listoftopics}}
+
+<tr>
+
+	<td><a href="/topics/{{id}}/comments"> {{title}}</a></td>
+	<td>{{creator}}</td>
+	<td>{{date}}</td>
+	<td><form action="/topics/{{id}}" method="GET">
 	<input type="submit" value="Update Topic">
 
-</form>
-	{{/listoftopics}}
+	</form></td>
 
 
-</ul>
+</tr>
+{{/listoftopics}}
+
+
+		
+
+
+</tbody>
+</table>
+
+
 <form action="/topics/new" method="GET">
+<center>
 <button>Create a new topic</button>
+</center>
 </form>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<center>
+			<form action="/" method="GET">
+			<button type="submit"> Home </button>
+			</form>
+			</center>
+
+		</div>
+	</div>
+</div>
 
 
 

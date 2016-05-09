@@ -12,6 +12,8 @@ var app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
+app.use(express.static(process.cwd() + '/public'));
+app.use('/bower_components', express.static(__dirname +  '/bower_components'));
 
 app.get('/', function(req, res){
 	res.send(fs.readFileSync('./views/topics/index.html', 'utf8'));
@@ -106,7 +108,7 @@ console.log(id)
 
 	   
 	     fs.readFile('./views/topics/show.html', 'utf8', function(err, html){
-	        var renderedHTML = Mustache.render(html, {body:topics, person_created:comments, input:comments, id:id});
+	        var renderedHTML = Mustache.render(html, {topic:topics, comment:comments,  id:id});
 	        res.send(renderedHTML);
 	        console.log(comments);
 	       
@@ -120,6 +122,35 @@ console.log(id)
 });
 
 
+app.get('/topics/:id/comments/edit', function(req, res){
+
+	var id = req.params.id;
+	res.locals.id = id
+
+	console.log(id)
+
+	db.all('SELECT * FROM comments WHERE id= ' + id + ';', {}, function(err, comment){
+
+
+	
+		
+
+		fs.readFile('./views/comments/edit.html', 'utf8', function(err, html){
+
+			
+			
+
+
+			var renderedHTML = Mustache.render(html, comment[0], {id:id});
+			res.send(renderedHTML)
+
+		});
+
+		});
+
+
+
+});
 
 
 
@@ -142,7 +173,7 @@ app.post('/topics/:id/comments/new', function(req, res){
 	
 	
 	
-	db.run("INSERT INTO comments (person_created, input, topic_id) VALUES ('" + req.body.person_created + "','" + req.body.input + "', '" + id + "')", function(error){ 
+	db.run("INSERT INTO comments (name, input, topic_id) VALUES ('" + req.body.name + "','" + req.body.input + "', '" + id + "')", function(error){ 
 
 
 
@@ -162,7 +193,7 @@ app.post('/topics/:id/comments/new', function(req, res){
 
 	});
 
-	res.redirect("/topics/" + id + "/comments")
+	res.redirect("/topics")
 
 });
 
@@ -197,6 +228,39 @@ app.put('/topics/:id', function(req, res){
 
 });
 
+app.put('/topics/:id/comments/edit', function(req, res){
+	var id = req.params.id;
+	
+	res.locals.id = id
+	
+
+	
+	
+
+	var comment = req.body
+	console.log(req.body)
+
+
+	db.run("UPDATE comments SET name =  '" + comment.name + "', input =  '" + comment.input + "' WHERE id = " + id + ";", function(err, updated){
+
+		if (err) {
+			console.log("Error");
+		}
+
+		else {
+			console.log('Success')
+		}
+
+
+
+	});
+
+	res.redirect('/topics')
+
+
+});
+
+
 app.delete('/topics/:id', function(req, res){
 	var id = req.params.id;
 
@@ -209,7 +273,33 @@ app.delete('/topics/:id', function(req, res){
 		}
 	});
 
-	res.redirect('/topics')
+res.redirect('/topics')
+});
+
+
+
+app.delete('/topics/:id/comments/edit', function(req, res){
+
+	var id = req.params.id;
+	
+
+	db.run("DELETE FROM comments WHERE id=" + id + ";", function(err, success) {
+
+		if (err) {
+		console.log('Error')
+	}
+
+	else {
+		console.log('Success')
+	}
+
+	});
+
+	res.redirect('/topics/')
+
+
+	
+	
 });
 
 

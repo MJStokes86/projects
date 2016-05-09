@@ -1,0 +1,119 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+
+body {
+	background-color: #212121;
+}
+
+.img-bg {
+	height: 600px;
+	width: auto;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* #img1 {
+	background-image: url('http://i.imgur.com/eCLPu6S.jpg');
+	
+}
+ */
+#img1 h1 {
+	position:absolute;
+	top: 30%;
+	left:50%;
+	margin-right: -50%;
+	transform: translate(-50%, 50%);
+	color: #fff;
+	text-transform: uppercase;
+	text-shadow: 2px 2px #000;
+}
+
+#img1 button {
+	position:absolute;
+	top: 50%;
+	left:50%;
+	margin-right: -50%;
+	transform: translate(-50%, 50%);
+	background: none;
+	border: solid #fff 6px ;
+	padding: 10px;
+	color: #fff;
+	font-size: 20px;
+	text-shadow: 2px 2px #000;
+
+
+
+
+}
+
+.table {
+	margin-top: 10%;
+	background-color: #000;
+
+}
+
+.title, .topic-title {
+	color: white;
+	text-align: center;
+}
+
+.topics tr th{
+	border-bottom: 1px #fff solid;
+	border-top: none;
+	text-align: left;
+	font-size: 15px;
+	color: #fff;
+
+}
+
+.comments {
+	margin-left: 25%;
+}
+
+.comments tr th {
+	border-bottom: 1px #fff solid;
+	border-top: none;
+	text-align: left;
+	font-size: 15px;
+	color: #fff;
+
+}
+
+input, button {
+	border: solid #fff 2px ;
+	padding: 3px;
+	color: #fff;
+	text-shadow: 2px 2px #000;
+	background:none;
+
+}
+
+#cancel {
+	margin-left: 47.5%;
+	text-transform: uppercase;
+}
+
+td {
+	color: #fff;
+}
+
+.input-wrap p {
+	color: #fff;
+}
+
+.form-control {
+	text-shadow: none;
+}
+
+.new-comment, .edit-comment {
+	margin-top: 10%;
+}
+
+
+
+

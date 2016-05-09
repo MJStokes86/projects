@@ -4,43 +4,66 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Edit Topic</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 
-<form action="/topics/{{id}}?_method=PUT" method="POST">
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
 
+
+
+<form action="/topics/{{id}}?_method=PUT" method="POST">
+	<div class="form-group">
 	<center>
 	
+	<div class="input-wrap">
+	<p>Title</p>
 	<label>
-	Title:
-	<input type="text" name="title" value='{{title}}' />
+	
+	<input  class='form-control' type="text" name="title" value='{{title}}' />
 	</label>
-	Creator:
-	<label>
-	<input type="text" name="creator" value='{{creator}}'/>
-	</label>
-	<label>
-	Date:
-	<input type="text" name= "date" value='{{date}}'/>
-	</label>
+	</div>
 
+	<div class="input-wrap">
+	
+	<p>Creator</p>
+	<label>
+	
+	<input  class= 'form-control' type="text" name="creator" value='{{creator}}'/>
+	</label>
+	</div>
+
+	<div class="input-wrap">
+	<p>Date</p>
+	<label>
+	
+	<input  class= 'form-control' type="text" name= "date" value='{{date}}'/>
+	</label>
+	</div>
 
 	<br />
-	<p>
-	</p>
 
-	Body:
-	<br />
+	<div class="input-wrap">
+	<p>Body</p>
 	<label>
-	<textarea type="text" name="body" rows="10" cols="50" value='{{body}}'>
+	
+	<textarea class= 'form-control' type="text" name="body" rows="10" cols="50" value='{{body}}'>
 	</textarea>
 	</label>
+	</div>
 	
 
 	<br />
 	<input type='submit' value='UPDATE' />
-	<br />
+	
+
+	<form action="/topics/{{id}}?_method=DELETE" method="POST">
+	<input type='submit' value='DELETE' />
+	</form>
 
 	
 	</center>
@@ -49,12 +72,18 @@
 
 </form>
 
-<form action="/topics/{{id}}?_method=DELETE" method="POST">
+<br>
 
-	<input type='submit' value='DELETE' />
-
-	
+<form action="/topics" method="GET">
+	<button id="cancel" type="submit">Cancel</button>
 </form>
+
+
+</div>
+</div>
+</div>
+</div>
+
 	
 </body>
 </html>

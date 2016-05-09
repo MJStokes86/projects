@@ -1,52 +1,75 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-<style type="text/css">
-body{
-	background-color: gray;
 
-}
-</style>
 	<meta charset='UTF-8'>
 	<title>Create New Topic</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 </head>
 <body>
+
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+
 <form action="/topics/new" method="POST">
+	<div class="form-group">
 	<center>
+
+	<div class="input-wrap">
 	<label>
-	Title:
-	<input type="text" name="title" />
+	<p>Title</p>
+	<input class="form-control" type="text" name="title" />
 	</label>
-	Creator:
+	</div>
+
+	<div class="input-wrap">
+	<p>Creator</p>
 	<label>
-	<input type="text" name="creator" />
+	<input class="form-control" type="text" name="creator" />
 	</label>
+	</div>
+
+	<div class="input-wrap">
 	<label>
-	Date:
-	<input type="text" name= "date" />
+	<p>Date</p>
+	<input class="form-control" type="text" name= "date" />
 	</label>
+	</div>
 
 	<br />
-	<p>
-	</p>
-
-	Body:
+	
+	<div class="input-wrap">
+	<p>Body</p>
 	<br />
 	<label>
-	<textarea type="text" name="body" rows="10" cols="50">
+	<textarea class="form-control" type="text" name="body" rows="10" cols="50">
 	</textarea>
 	</label>
+	</div>
 
 	<br />
 	<button>Submit</button>
 
 	<br />
 	</center>
-
-
-
 </form>
+
+<br>
+
+<form action="/topics" method="GET">
+	<button id="cancel" type="submit">Cancel</button>
+</form>
+
+
+</div>
+</div>
+</div>
+</div>
+
 
 </body>
 </html>
